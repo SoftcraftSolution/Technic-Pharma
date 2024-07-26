@@ -1,0 +1,149 @@
+/* Ensure the container takes up the whole viewport */
+.addadmin-container {
+    display: flex;
+    width: 85vw;
+    height: 100vh;
+    margin-left: 300px;
+    
+  }
+  
+  /* Style for the main content area */
+  .addadmin-main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow-y: auto;
+    
+    
+  }
+  
+  /* Header area styles */
+  .addadmin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .addadmin-heading {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .addadmin-button-small {
+    padding: 3px 8px; /* Adjust padding for smaller size */
+    background-color: orange;
+    color: white;
+    border: 1px solid #007bff; /* Add border for a more defined button */
+    cursor: pointer;
+    border-radius: 3px; /* Smaller border radius */
+    font-size: 12px; /* Decrease font size for smaller text */
+    width: 100px;
+}
+
+/* Hover effect */
+.addadmin-button-small:hover {
+    background-color: #0056b3; /* Darker shade of blue */
+}
+
+  
+  .addadmin-button-small:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Content area styles */
+  .addadmin-content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  
+  .addadmin-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .addadmin-image {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+  }
+  
+  .addadmin-heading1 {
+    font-size: 20px;
+    margin: 0;
+  }
+  
+  .addadmin-subheading {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .addadmin-details {
+    display: grid;
+    justify-content: start;
+    
+  }
+  
+  .addadmin-strong-text {
+    font-weight: bold;
+    margin-top: 10px;
+    width:300px;
+    
+  }
+  
+  .addadmin-button-logout-small {
+    padding: 5px 10px;
+    background-color: white;
+    color: black;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    align-self: flex-start;
+    margin-top: 20px;
+    margin-left: 1100px;
+    width: 20px;
+  }
+  
+  
+  
+  /* Table styles */
+  .addadmin-table {
+    margin-top: 20px;
+  }
+  
+  .addadmin-table-heading {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .addadmin-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .addadmin-table th, .addadmin-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .addadmin-table th {
+    background-color: #f2f2f2;
+    text-align: left;
+  }
+  
+  .addadmin-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .addadmin-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  
