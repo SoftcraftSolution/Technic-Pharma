@@ -5,7 +5,7 @@ import birthdayIcon from '../assets/cake.png';
 import inactiveIcon from '../assets/inactive.png';
 import Sidebar from '../Sidebar/sidebar';
 import axios from 'axios';
-
+import './dash.css';
 
 const Dashboard = () => {
   const [counts, setCounts] = useState({
