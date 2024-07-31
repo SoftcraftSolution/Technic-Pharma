@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 import Sidebar from '../Sidebar/sidebar';
 import salesmanIcon from '../assets/total.png';
 import activeIcon from '../assets/active.png';
@@ -9,30 +8,11 @@ import './dash.css';
 
 const Dashboard = () => {
   const [counts, setCounts] = useState({
-    totalSalesmen: 0,
-    activeSalesmen: 0,
-    birthdaysToday: 0,
-    inactiveSalesmen: 0,
+    totalSalesmen: 120,
+    activeSalesmen: 85,
+    birthdaysToday: 3,
+    inactiveSalesmen: 35,
   });
-
-  useEffect(() => {
-    const fetchCounts = async () => {
-      try {
-        const response = await axios.get('');
-        const data = response.data.body;
-        setCounts({
-          totalSalesmen: data.totalSalesmen,
-          activeSalesmen: data.totalActiveSalesmen,
-          birthdaysToday: data.salesmenBirthdaysToday.length,
-          inactiveSalesmen: data.totalInactiveSalesmen,
-        });
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchCounts();
-  }, []);
 
   return (
     <div className='App'>
