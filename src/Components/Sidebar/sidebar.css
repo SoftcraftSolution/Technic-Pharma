@@ -1,87 +1,88 @@
-/* src/Sidebar.css */
-
 .sidebar {
   position: fixed;
-    width: 250px;
-    height: 95vh;
-    background-color: #f9f9f9;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-  }
-  
-  .logo {
-    text-align: center;
-  }
-  
- #hg{
+  width: 250px;
+  height: 95vh;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo img {
+  display: block;
+  margin: 0 auto;
+}
+
+#ggg {
+  width: 61px;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+#gggg {
+  width: 114px;
+  height: 32px;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: background 0.3s;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.menu-item:hover,
+.menu-item.active {
+  background-color: #888;
+  color: #fff;
+}
+
+.menu-item .icon {
   height: 24px;
   width: 24px;
-  vertical-align:middle;
+  vertical-align: middle;
   margin-right: 10px;
- }
-  #ggg{
-    width: 61px;
-    height: 30px;
-  }
-  #gggg{
-    width: 114px;
-    height: 32px;
-  }
-  .logo h1 {
-    margin: 0;
-    font-size: 1.5em;
-  }
-  
-  .logo p {
-    margin: 0;
-    font-size: 0.9em;
-    color: #888;
-  }
-  
-  .menu {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-    
-  }
-  
-  .menu-item {
-    margin-top: 20px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background 0.3s;
-    
-  }
-  
-  .menu-item:hover
-  {
-    background-color: #888;
-    border-radius: 4px;
-   
-  }
-  
-  .user-info {
-    text-align: center;
-  }
-  
-  .user-info p {
-    margin: 0;
-  }
-  
-  .user-details {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .user-details img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-    margin-top: 20px;
-  }
-  
+}
+
+.user-info {
+  text-align: center;
+}
+
+.user-info p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.user-details img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}

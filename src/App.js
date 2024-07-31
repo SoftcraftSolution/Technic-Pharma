@@ -8,6 +8,7 @@ import MapPage from './Components/LiveLoc/LiveTracking';
 import AdminDetails from './Components/Admin/AddAdmin';
 import LoginPage from './Components/Login/login';
 import ForgotPassword from './Components/forgotpassword/forgot';
+import LocationList from './Components/Location/Location';
 import './App.css';
 
 
@@ -24,6 +25,7 @@ function App() {
             <Route path="/LiveTracking" element={<MapPage/>} />
             <Route path="/AddAdmin" element={<AdminDetails/>} />
             <Route path="/forgot" element={<ForgotPassword/>} />
+            <Route path="/Location" element={<LocationList/>} />
             <Route path="/" element={<LoginPage/>} />
             
           </Routes>

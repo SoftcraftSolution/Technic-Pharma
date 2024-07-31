@@ -1,149 +1,103 @@
-/* Ensure the container takes up the whole viewport */
+/* admin.css */
+
+
+
 .addadmin-container {
-    display: flex;
-    width: 85vw;
-    height: 100vh;
-    margin-left: 300px;
-    
-  }
-  
-  /* Style for the main content area */
-  .addadmin-main-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    overflow-y: auto;
-    
-    
-  }
-  
-  /* Header area styles */
-  .addadmin-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .addadmin-heading {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .addadmin-button-small {
-    padding: 3px 8px; /* Adjust padding for smaller size */
-    background-color: orange;
-    color: white;
-    border: 1px solid #007bff; /* Add border for a more defined button */
-    cursor: pointer;
-    border-radius: 3px; /* Smaller border radius */
-    font-size: 12px; /* Decrease font size for smaller text */
-    width: 100px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f4f4f4;
+  margin-left: 280px;
+  width: 1100px;
 }
 
-/* Hover effect */
-.addadmin-button-small:hover {
-    background-color: #0056b3; /* Darker shade of blue */
+.addadmin-main-content {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 100%;
+  max-width: 800px;
+  margin: 20px;
 }
 
-  
-  .addadmin-button-small:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Content area styles */
-  .addadmin-content {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-  }
-  
-  .addadmin-info {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .addadmin-image {
-    width: 100px;
-    height: 100px;
-    margin-right: 20px;
-    border-radius: 50%;
-    border: 2px solid #ddd;
-  }
-  
-  .addadmin-heading1 {
-    font-size: 20px;
-    margin: 0;
-  }
-  
-  .addadmin-subheading {
-    font-size: 16px;
-    color: #666;
-  }
-  
-  .addadmin-details {
-    display: grid;
-    justify-content: start;
-    
-  }
-  
-  .addadmin-strong-text {
-    font-weight: bold;
-    margin-top: 10px;
-    width:300px;
-    
-  }
-  
-  .addadmin-button-logout-small {
-    padding: 5px 10px;
-    background-color: white;
-    color: black;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 14px;
-    align-self: flex-start;
-    margin-top: 20px;
-    margin-left: 1100px;
-    width: 20px;
-  }
-  
-  
-  
-  /* Table styles */
-  .addadmin-table {
-    margin-top: 20px;
-  }
-  
-  .addadmin-table-heading {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .addadmin-table table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .addadmin-table th, .addadmin-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  .addadmin-table th {
-    background-color: #f2f2f2;
-    text-align: left;
-  }
-  
-  .addadmin-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  .addadmin-table tr:hover {
-    background-color: #f1f1f1;
-  }
-  
-  
+.addadmin-header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.addadmin-heading {
+  margin: 0;
+  font-size: 24px;
+}
+
+.addadmin-content {
+  padding: 20px;
+}
+
+.addadmin-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.addadmin-image {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+}
+
+.addadmin-heading1 {
+  margin: 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.addadmin-subheading {
+  margin: 5px 0 0 0;
+  font-size: 16px;
+  color: #777;
+}
+
+.addadmin-details {
+  margin-top: 20px;
+}
+
+.addadmin-strong-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 5px 0;
+}
+
+.addadmin-button-logout-small {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.addadmin-button-logout-small:hover {
+  background-color: #d32f2f;
+}
+
+.addadmin-button-logout-small svg {
+  margin-right: 0;
+}

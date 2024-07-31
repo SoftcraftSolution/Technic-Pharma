@@ -10,12 +10,20 @@ const SalesmanList = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [sortField, setSortField] = useState('');
     const [sortOrder, setSortOrder] = useState('asc');
+    const [checkedState, setCheckedState] = useState({});
 
     useEffect(() => {
         const fetchSalesmen = async () => {
             try {
                 const response = await axios.get('https://technic-farma-backend.vercel.app/user/get-salesman');
-                setSalesmen(response.data.body);
+                const salesmenData = response.data.body;
+                setSalesmen(salesmenData);
+                setCheckedState(
+                    salesmenData.reduce((acc, salesman) => {
+                        acc[salesman._id] = salesman.isAdminApproved;
+                        return acc;
+                    }, {})
+                );
                 setLoading(false);
             } catch (error) {
                 console.error('Error fetching salesmen data:', error);
@@ -34,6 +42,23 @@ const SalesmanList = () => {
         const order = sortField === field && sortOrder === 'asc' ? 'desc' : 'asc';
         setSortField(field);
         setSortOrder(order);
+    };
+
+    const handleCheckboxChange = async (id) => {
+        const newCheckedState = !checkedState[id];
+        try {
+            const response = await axios.post(`https://technic-farma-backend.vercel.app/user/admin-approved?id=${id}`, {
+                isAdminApproved: newCheckedState.toString()
+            });
+            if (response.status === 200) {
+                setCheckedState((prevState) => ({
+                    ...prevState,
+                    [id]: newCheckedState,
+                }));
+            }
+        } catch (error) {
+            console.error('Error updating salesman status:', error);
+        }
     };
 
     const filteredSalesmen = salesmen
@@ -81,21 +106,30 @@ const SalesmanList = () => {
                         <table>
                             <thead>
                                 <tr>
-                                    <th id='qq'>Full Name</th>
+                                    <th>Full Name</th>
                                     <th>Phone No</th>
                                     <th>Gender</th>
                                     <th>Date of Birth</th>
-                                    <th id='iq'>Email</th>
+                                    <th>Email</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {filteredSalesmen.map((salesman, index) => (
-                                    <tr key={index}>
+                                {filteredSalesmen.map((salesman) => (
+                                    <tr key={salesman._id}>
                                         <td>{salesman.fullname}</td>
                                         <td>{salesman.phonenumber}</td>
                                         <td>{salesman.gender}</td>
                                         <td>{new Date(salesman.dob).toLocaleDateString()}</td>
                                         <td>{salesman.email}</td>
+                                        <td>
+                                            <input
+                                                type="checkbox"
+                                                checked={checkedState[salesman._id]}
+                                                onChange={() => handleCheckboxChange(salesman._id)}
+                                            />
+                                            {checkedState[salesman._id] ? ' Confirmed' : ' Approval Pending'}
+                                        </td>
                                     </tr>
                                 ))}
                             </tbody>
