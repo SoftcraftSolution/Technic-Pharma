@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Sidebar from '../Sidebar/sidebar';
 import salesmanIcon from '../assets/total.png';
 import activeIcon from '../assets/active.png';
 import birthdayIcon from '../assets/cake.png';
 import inactiveIcon from '../assets/inactive.png';
-import Sidebar from '../Sidebar/sidebar';
-import axios from 'axios';
 import './dash.css';
 
 const Dashboard = () => {
@@ -18,7 +18,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchCounts = async () => {
       try {
-        const response = await axios.get('http://technic-farma-backend.vercel.app/user/get-salesman-insights');
+        const response = await axios.get('');
         const data = response.data.body;
         setCounts({
           totalSalesmen: data.totalSalesmen,
