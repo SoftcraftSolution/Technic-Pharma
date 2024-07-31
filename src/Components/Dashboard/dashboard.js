@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import '../Dashboard/Dashboard.css';
 import salesmanIcon from '../assets/total.png';
 import activeIcon from '../assets/active.png';
 import birthdayIcon from '../assets/cake.png';
 import inactiveIcon from '../assets/inactive.png';
 import Sidebar from '../Sidebar/sidebar';
 import axios from 'axios';
+import './Dashboard.css'; 
 
 const Dashboard = () => {
   const [counts, setCounts] = useState({
