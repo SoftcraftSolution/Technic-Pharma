@@ -35,7 +35,7 @@ function LoginPage() {
         sessionStorage.setItem('hospitalName', result.hospitalName); // Assuming hospitalName is part of the response
 
         // Redirect to the dashboard or another page
-        navigate('/dashboard');
+        navigate('/dash');
       } else {
         // Handle login error
         const result = await response.json();

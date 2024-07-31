@@ -18,7 +18,7 @@ function Sidebar() {
             </div>
             <ul className="menu">
                 <li className="menu-item"> 
-                    <Link to="/dashboard">
+                    <Link to="/dash">
                         <img className="icon" src={icon8} alt="Dashboard" />
                         Dashboard
                     </Link>

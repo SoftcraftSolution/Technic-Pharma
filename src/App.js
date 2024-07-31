@@ -2,7 +2,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Sidebar from './Components/Sidebar/sidebar';
-import Dashboard from './Components/Dashboard/dashboard';
+import Dashboard from './Components/Dashboard/dash';
 import SalesmanList from './Components/Salesmanlist/salesmanlist';
 import MapPage from './Components/LiveLoc/LiveTracking';
 import AdminDetails from './Components/Admin/AddAdmin';
@@ -21,7 +21,7 @@ function App() {
           <Routes>
             
             <Route path="/salesmanlist" element={<SalesmanList />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dash" element={<Dashboard />} />
             <Route path="/LiveTracking" element={<MapPage/>} />
             <Route path="/AddAdmin" element={<AdminDetails/>} />
             <Route path="/forgot" element={<ForgotPassword/>} />
