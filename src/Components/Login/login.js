@@ -1,75 +1,106 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './login.css';
-import logo from '../Login/logoh.png';
-import logo1 from '../Login/logoi.png';
+import logo from './logo2.png';
+import logo2 from './logoi.png';
 
-const LoginPage = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
-    const navigate = useNavigate();
+function LoginPage() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await axios.post('https://dashboard-backend-chi-two.vercel.app/user/login', {
-                email,
-                password
-            });
-            console.log('Login successful:', response.data);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+    setError('');
+
+    try {
+      const response = await fetch('https://dashboard-backend-chi-two.vercel.app/user/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        // Handle successful login
+        console.log('Login successful:', result);
+        // Store token, role, and hospital name in session storage
+        sessionStorage.setItem('token', result.token);
+        sessionStorage.setItem('role', result.role);
+        sessionStorage.setItem('hospitalName', result.hospitalName); // Assuming hospitalName is part of the response
+
+        // Redirect to the dashboard or another page
+        navigate('/dashboard');
+      } else {
+        // Handle login error
+        const result = await response.json();
+        setError(result.message || 'Login failed');
+      }
+    } catch (err) {
+      setError('An error occurred. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="login-container">
+      <div className="image-section">
+        <img src={logo} alt="Hospital with Ambulance" />
+      </div>
+      <div className="login-form-section">
+        <div className="login-form-container">
+          <div className="login-logo">
+            <img src={logo2} alt="Logo" />
+          </div>
+          <h2>Hello!</h2>
+          <p>Log in to continue.</p>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="email" className="login-label">Email address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              className="login-input"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
             
-            navigate('/dashboard'); 
-        } catch (error) {
-            console.error('Login failed:', error.response ? error.response.data : error.message);
-            setError('Login failed. Please check your credentials and try again.');
-        }
-    };
-
-    return (
-        <div className="login-container">
-            <div className="logo-section">
-                <img src={logo} alt="TPE Logo" className="logo" />
+            <label htmlFor="password" className="login-label">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              className="login-input"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            
+            <button type="submit" className="login-button" disabled={loading}>
+              {loading ? 'Logging in...' : 'Log IN'}
+            </button>
+            
+            {error && <div className="login-error">{error}</div>}
+            
+            <div className="login-form-footer">
+              <label className="login-checkbox-label">
+                <input type="checkbox" name="keepSignedIn" className="login-checkbox" />
+                Keep me signed in
+              </label>
+              <a href="#" className="login-forgot-password">Forgot password?</a>
             </div>
-            <div className="login-section">
-                <div className="login-form">
-                    <img src={logo1} alt="TPE Logo" className="logo1" />
-                    <p>Hello!<br/>Log in to continue.</p>
-                    {error && <p className="error-message">{error}</p>}
-                    <form onSubmit={handleSubmit}>
-                        <div className="form-group">
-                            <input
-                                type="email"
-                                placeholder="Email address"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                required
-                            />
-                        </div>
-                        <div className="form-group">
-                            <input
-                                type="password"
-                                placeholder="Password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                            />
-                        </div>
-                        <div className="form-group">
-                            <button type="submit">Log IN</button>
-                        </div>
-                        <div className="form-options">
-                            <label>
-                                <input type="checkbox" /> Keep me signed in
-                            </label>
-                            <a href="/forgot">Forgot password?</a>
-                        </div>
-                    </form>
-                </div>
-            </div>
+          </form>
         </div>
-    );
-};
+      </div>
+    </div>
+  );
+}
 
 export default LoginPage;

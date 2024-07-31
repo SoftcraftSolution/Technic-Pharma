@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Dashboard.css';
+import '../Dashboard/Dashboard.css';
 import salesmanIcon from '../assets/total.png';
 import activeIcon from '../assets/active.png';
 import birthdayIcon from '../assets/cake.png';
