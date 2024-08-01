@@ -7,7 +7,7 @@ import SalesmanList from './Components/Salesmanlist/salesmanlist';
 import MapPage from './Components/LiveLoc/LiveTracking';
 import AdminDetails from './Components/Admin/AddAdmin';
 import LoginPage from './Components/Login/login';
-import ForgotPassword from './Components/forgotpassword/forgot';
+import ForgotPassword from './Components/forgotpassword/forget';
 import CodeInput from './Components/forgotpassword/code';
 import LocationList from './Components/Location/Location';
 import ChangePassword from './Components/forgotpassword/reset';
@@ -27,7 +27,7 @@ function App() {
             <Route path="/dash" element={<Dashboard />} />
             <Route path="/LiveTracking" element={<MapPage/>} />
             <Route path="/AddAdmin" element={<AdminDetails/>} />
-            <Route path="/forgot" element={<ForgotPassword/>} />
+            <Route path="/forget" element={<ForgotPassword/>} />
             <Route path="/Location" element={<LocationList/>} />
             <Route path="/Code" element={<CodeInput/>} />
             <Route path="/reset" element={<ChangePassword/>} />
