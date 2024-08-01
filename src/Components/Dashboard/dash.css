@@ -1,67 +1,61 @@
 .dashboard {
-    padding: 20px;
-    background-color: #f0f2f5;
-    font-family: Arial, sans-serif;
-    margin-left: 280px;
-    font-family: 'Times New Roman', Times, serif;
-    
-  }
-  
-  h1 {
-    margin-bottom: 20px;
-  }
-  
-  .stats-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-  
-  .stat-item {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 450px;
-height: 100px;
-top: 128px;
-left: 873px;
-gap: 0px;
-opacity: 0px;
+  padding: 20px;
+  background-color: #f0f2f5;
+  font-family: 'Times New Roman', Times, serif;
+  margin-left: 280px;
+}
 
-    padding: 20px;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .stat-content {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .stat-content h2 {
-    font-size: 20px;
-    margin: 0;
-    margin-bottom: 10px;
-  }
-  
-  .stat-content p {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
-  }
-  
-  .stat-content p.active {
-    color: green;
-  }
-  
-  .stat-content p.inactive {
-    color: red;
-  }
-  
-  .stat-icon {
-    width: 100px;
-    height: 100px;
-  }
-  
+h1 {
+  margin-bottom: 20px;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 450px;
+  height: 100px;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Remove or adjust this */
+  /* opacity: 0px; */
+}
+
+.stat-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-content h2 {
+  font-size: 20px;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.stat-content p {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.stat-content p.active {
+  color: green;
+}
+
+.stat-content p.inactive {
+  color: red;
+}
+
+.stat-icon {
+  width: 100px;
+  height: 100px;
+}
