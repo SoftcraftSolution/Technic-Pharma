@@ -4,6 +4,7 @@ import activeIcon from '../assets/active.png';
 import birthdayIcon from '../assets/cake.png';
 import inactiveIcon from '../assets/inactive.png';
 import Sidebar from '../Sidebar/sidebar';
+import axios from 'axios';
 import './dash.css';
 
 const Dashboard = () => {
@@ -17,13 +18,13 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchCounts = async () => {
       try {
-        const response = await fetch('http://technic-farma-backend.vercel.app/user/get-salesman-insights');
-        const data = await response.json();
+        const response = await axios.get('http://technic-farma-backend.vercel.app/user/get-salesman-insights');
+        const data = response.data.body;
         setCounts({
-          totalSalesmen: data.body.totalSalesmen,
-          activeSalesmen: data.body.totalActiveSalesmen,
-          birthdaysToday: data.body.salesmenBirthdaysToday.length,
-          inactiveSalesmen: data.body.totalInactiveSalesmen,
+          totalSalesmen: data.totalSalesmen,
+          activeSalesmen: data.totalActiveSalesmen,
+          birthdaysToday: data.salesmenBirthdaysToday.length,
+          inactiveSalesmen: data.totalInactiveSalesmen,
         });
       } catch (error) {
         console.error('Error fetching data:', error);
