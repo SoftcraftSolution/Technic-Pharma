@@ -4,6 +4,7 @@ import axios from 'axios';
 import './forgot.css';
 
 const ForgotPassword = () => {
+    console.log("in forget");
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
     const [error, setError] = useState('');
