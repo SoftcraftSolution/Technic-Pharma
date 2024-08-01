@@ -11,7 +11,7 @@ const LocationList = () => {
     useEffect(() => {
         const fetchLocations = async () => {
             try {
-                const response = await fetch('http://technic-farma-backend.vercel.app/user/get-location-list');
+                const response = await fetch('https://technic-farma-backend.vercel.app/user/get-location-list');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
