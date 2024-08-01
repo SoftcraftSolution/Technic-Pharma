@@ -94,7 +94,7 @@ function LoginPage() {
                 <input type="checkbox" name="keepSignedIn" className="login-checkbox" />
                 Keep me signed in
               </label>
-              <a href="/forget" className="login-forgot-password">Forgot password?</a>
+              <a href="/Code" className="login-forgot-password">Forgot password?</a>
             </div>
           </form>
         </div>
