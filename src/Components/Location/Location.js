@@ -20,7 +20,7 @@ const LocationList = () => {
                 const salesmen = data.body.users.flatMap(user => user.salesmen.map(salesman => ({
                     salesmanName: user.name,
                     phoneNumber: user.phone,
-                    locationName: salesman.location,
+                    locationName: salesman.address,
                     image: salesman.image,
                     time: salesman.createdAt,
                     date: salesman.createdAt,
@@ -73,7 +73,7 @@ const LocationList = () => {
                                     <th>Salesman Name</th>
                                     <th>Phone No</th>
                                     <th>Location Name</th>
-                                    <th>Address</th>
+                                    
                                     <th>Image</th>
                                     <th>Time</th>
                                     <th>Date</th>
@@ -86,7 +86,7 @@ const LocationList = () => {
                                         <td>{location.salesmanName}</td>
                                         <td>{location.phoneNumber}</td>
                                         <td>{location.locationName}</td>
-                                        <td>{location.address || 'N/A'}</td>
+                                        
                                         <td><img src={location.image} alt={location.locationName} className="location-image" /></td>
                                         <td>{new Date(location.time).toLocaleTimeString()}</td>
                                         <td>{new Date(location.date).toLocaleDateString()}</td>

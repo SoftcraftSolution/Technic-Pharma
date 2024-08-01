@@ -8,7 +8,10 @@ import MapPage from './Components/LiveLoc/LiveTracking';
 import AdminDetails from './Components/Admin/AddAdmin';
 import LoginPage from './Components/Login/login';
 import ForgotPassword from './Components/forgotpassword/forgot';
+import CodeInput from './Components/forgotpassword/code';
 import LocationList from './Components/Location/Location';
+import ChangePassword from './Components/forgotpassword/reset';
+import Success from './Components/forgotpassword/resetconfirm';
 import './App.css';
 
 
@@ -26,6 +29,9 @@ function App() {
             <Route path="/AddAdmin" element={<AdminDetails/>} />
             <Route path="/forgot" element={<ForgotPassword/>} />
             <Route path="/Location" element={<LocationList/>} />
+            <Route path="/Code" element={<CodeInput/>} />
+            <Route path="/reset" element={<ChangePassword/>} />
+            <Route path="/resetconfirm" element={<Success/>} />
             <Route path="/" element={<LoginPage/>} />
             
           </Routes>

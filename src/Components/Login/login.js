@@ -17,7 +17,7 @@ function LoginPage() {
     setError('');
 
     try {
-      const response = await fetch('https://dashboard-backend-chi-two.vercel.app/user/login', {
+      const response = await fetch('https://technic-farma-backend.vercel.app/user/admin-login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ function LoginPage() {
                 <input type="checkbox" name="keepSignedIn" className="login-checkbox" />
                 Keep me signed in
               </label>
-              <a href="#" className="login-forgot-password">Forgot password?</a>
+              <a href="/forgot" className="login-forgot-password">Forgot password?</a>
             </div>
           </form>
         </div>
