@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import './Location.css';
 import Sidebar from '../Sidebar/sidebar';
 
@@ -12,9 +11,13 @@ const LocationList = () => {
     useEffect(() => {
         const fetchLocations = async () => {
             try {
-                const response = await axios.get('http://technic-farma-backend.vercel.app/user/get-location-list');
+                const response = await fetch('http://technic-farma-backend.vercel.app/user/get-location-list');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
                 // Extract salesmen data from the nested structure
-                const salesmen = response.data.body.users.flatMap(user => user.salesmen.map(salesman => ({
+                const salesmen = data.body.users.flatMap(user => user.salesmen.map(salesman => ({
                     salesmanName: user.name,
                     phoneNumber: user.phone,
                     locationName: salesman.location,
@@ -27,14 +30,6 @@ const LocationList = () => {
                 setLoading(false);
             } catch (error) {
                 console.error('Error fetching location data:', error);
-                if (error.response) {
-                    console.error('Server responded with status code:', error.response.status);
-                    console.error('Response data:', error.response.data);
-                } else if (error.request) {
-                    console.error('No response received:', error.request);
-                } else {
-                    console.error('Error setting up request:', error.message);
-                }
                 setError('Failed to fetch location data.');
                 setLoading(false);
             }
