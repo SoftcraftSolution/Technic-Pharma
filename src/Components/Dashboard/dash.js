@@ -1,18 +1,37 @@
-import React, { useState } from 'react';
-import Sidebar from '../Sidebar/sidebar';
+import React, { useState, useEffect } from 'react';
 import salesmanIcon from '../assets/total.png';
 import activeIcon from '../assets/active.png';
 import birthdayIcon from '../assets/cake.png';
 import inactiveIcon from '../assets/inactive.png';
+import Sidebar from '../Sidebar/sidebar';
 import './dash.css';
 
 const Dashboard = () => {
   const [counts, setCounts] = useState({
-    totalSalesmen: 120,
-    activeSalesmen: 85,
-    birthdaysToday: 3,
-    inactiveSalesmen: 35,
+    totalSalesmen: 0,
+    activeSalesmen: 0,
+    birthdaysToday: 0,
+    inactiveSalesmen: 0,
   });
+
+  useEffect(() => {
+    const fetchCounts = async () => {
+      try {
+        const response = await fetch('http://technic-farma-backend.vercel.app/user/get-salesman-insights');
+        const data = await response.json();
+        setCounts({
+          totalSalesmen: data.body.totalSalesmen,
+          activeSalesmen: data.body.totalActiveSalesmen,
+          birthdaysToday: data.body.salesmenBirthdaysToday.length,
+          inactiveSalesmen: data.body.totalInactiveSalesmen,
+        });
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchCounts();
+  }, []);
 
   return (
     <div className='App'>
