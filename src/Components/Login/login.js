@@ -48,6 +48,10 @@ function LoginPage() {
     }
   };
 
+  const handleForgotPassword = () => {
+    navigate('/forget');
+  };
+
   return (
     <div className="login-container">
       <div className="image-section">
@@ -94,7 +98,7 @@ function LoginPage() {
                 <input type="checkbox" name="keepSignedIn" className="login-checkbox" />
                 Keep me signed in
               </label>
-              <a href="/Code" className="login-forgot-password">Forgot password?</a>
+              <button type="button" onClick={handleForgotPassword} className="login-forgot-password">Forgot password?</button>
             </div>
           </form>
         </div>
